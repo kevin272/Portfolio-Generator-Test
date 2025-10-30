@@ -1,3 +1,7 @@
+const API_BASE = resolveApiBase();
+
+export async function fetchTemplates() {
+  const response = await fetch(`${API_BASE}/api/templates`);
 export async function fetchTemplates() {
   const response = await fetch('/api/templates');
   if (!response.ok) {
@@ -5,6 +9,17 @@ export async function fetchTemplates() {
   }
 
   const data = await response.json();
+  return data.templates.map((template) => ({
+    ...template,
+    previewUrl:
+      template.previewUrl && !/^https?:\/\//i.test(template.previewUrl)
+        ? `${API_BASE}${template.previewUrl}`
+        : template.previewUrl,
+  }));
+}
+
+export async function buildPortfolio(templateId, portfolio) {
+  const response = await fetch(`${API_BASE}/api/build`, {
   return data.templates;
 }
 
@@ -30,4 +45,28 @@ export async function buildPortfolio(templateId, portfolio) {
   link.click();
   document.body.removeChild(link);
   window.URL.revokeObjectURL(url);
+}
+
+function resolveApiBase() {
+  if (typeof window === 'undefined') {
+    return '';
+  }
+
+  const override = window.__PORTFOLIO_API_ORIGIN__;
+  if (override) {
+    return String(override).replace(/\/$/, '');
+  }
+
+  const { protocol, hostname, port } = window.location;
+
+  if (protocol === 'http:' || protocol === 'https:') {
+    if (!port || port === '4000') {
+      const origin = `${protocol}//${hostname}`;
+      return port ? `${origin}:${port}` : origin;
+    }
+
+    return `${protocol}//${hostname}:4000`;
+  }
+
+  return 'http://localhost:4000';
 }

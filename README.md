@@ -38,6 +38,16 @@ cd client
 python -m http.server 5173
 ```
 
+Then browse to `http://localhost:5173` (or whichever port you choose). The frontend
+automatically talks to the API on `http://localhost:4000`. If your backend runs
+elsewhere, set a global override before loading `main.js`:
+
+```html
+<script>
+  window.__PORTFOLIO_API_ORIGIN__ = 'https://api.your-domain.com';
+</script>
+<script type="module" src="./main.js"></script>
+```
 Then browse to `http://localhost:5173` (or whichever port you choose).
 
 ### Environment variables

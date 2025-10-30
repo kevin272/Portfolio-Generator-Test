@@ -10,6 +10,15 @@ function createRenderer(template) {
       functionBody += `output += ${JSON.stringify(preceding)};\n`;
     }
 
+    const isOutput = match.startsWith('<%=');
+    const isRawOutput = match.startsWith('<%-');
+    const startIndex = isOutput || isRawOutput ? 3 : 2;
+    const content = match.slice(startIndex, -2);
+    const trimmed = content.trim();
+
+    if (isOutput || isRawOutput) {
+      functionBody += `output += (${trimmed});\n`;
+    } else if (trimmed) {
     const content = match.slice(2, -2);
     const trimmed = content.trim();
 
