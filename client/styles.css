@@ -1,0 +1,242 @@
+:root {
+  color-scheme: light;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0f172a;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #1d4ed8, #0f172a 60%);
+  min-height: 100vh;
+  color: #0f172a;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.app-header {
+  color: #e2e8f0;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.75rem;
+}
+
+.subtitle {
+  margin-top: 0.75rem;
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+}
+
+.sidebar {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.download {
+  background: linear-gradient(120deg, #f97316, #facc15);
+  color: #0f172a;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.download:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.status--error {
+  color: #fca5a5;
+}
+
+.status--success {
+  color: #bbf7d0;
+}
+
+.template-picker ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.template-picker button {
+  width: 100%;
+  text-align: left;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 1rem;
+  color: inherit;
+  cursor: pointer;
+}
+
+.template-picker button.active {
+  border-color: #f97316;
+}
+
+.template-picker img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.portfolio-form {
+  background: #f8fafc;
+  border-radius: 28px;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.portfolio-form label,
+.portfolio-form section {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.portfolio-form input,
+.portfolio-form textarea {
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+}
+
+.portfolio-form textarea {
+  resize: vertical;
+}
+
+.portfolio-form section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio-form section header button {
+  border: none;
+  background: #0ea5e9;
+  color: white;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+}
+
+.portfolio-form section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.portfolio-form section li {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.portfolio-form section li button {
+  justify-self: flex-start;
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  cursor: pointer;
+}
+
+.live-preview {
+  background: rgba(15, 23, 42, 0.75);
+  color: #e2e8f0;
+  border-radius: 28px;
+  padding: 2rem;
+}
+
+.preview {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.preview header {
+  border-bottom: 1px solid rgba(226, 232, 240, 0.2);
+  padding-bottom: 1rem;
+}
+
+.preview .headline {
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.preview-skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.preview-skills li {
+  background: rgba(59, 130, 246, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+.preview-projects {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.preview-projects li {
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 16px;
+  padding: 0.75rem;
+}
+
+.preview-projects a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+@media (max-width: 1100px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+}
