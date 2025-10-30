@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= portfolio.name %> — Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="topbar">
+      <span class="brand"><%= portfolio.name %></span>
+      <span class="headline"><%= portfolio.headline %></span>
+      <a class="contact" href="mailto:<%= portfolio.contact %>">Contact</a>
+    </nav>
+    <main>
+      <aside>
+        <h2>About</h2>
+        <p><%= portfolio.about %></p>
+        <% if (portfolio.skills.length) { %>
+        <h3>Skills</h3>
+        <ul>
+          <% portfolio.skills.forEach(function(skill) { %>
+          <li><%= skill %></li>
+          <% }); %>
+        </ul>
+        <% } %>
+      </aside>
+      <section class="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+          <% portfolio.projects.forEach(function(project) { %>
+          <article>
+            <h3><%= project.title %></h3>
+            <p><%= project.description %></p>
+            <% if (project.link) { %>
+            <a href="<%= project.link %>">Visit</a>
+            <% } %>
+          </article>
+          <% }); %>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <small>&copy; <%= new Date().getFullYear() %> <%= portfolio.name %></small>
+    </footer>
+  </body>
+</html>

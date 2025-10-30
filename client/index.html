@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MERN Portfolio Generator</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <header class="app-header">
+        <h1>MERN Portfolio Generator</h1>
+        <p class="subtitle">
+          Choose a template, customise your content, and download a ready-to-host portfolio in seconds.
+        </p>
+      </header>
+      <main class="app-main">
+        <aside class="sidebar">
+          <section id="template-picker" class="template-picker"></section>
+          <button id="download-button" class="download" type="button" disabled>
+            Download Portfolio
+          </button>
+          <p id="status-message" class="status" hidden></p>
+        </aside>
+        <section class="content">
+          <div id="form-container"></div>
+          <div id="preview-container"></div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
