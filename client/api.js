@@ -2,6 +2,8 @@ const API_BASE = resolveApiBase();
 
 export async function fetchTemplates() {
   const response = await fetch(`${API_BASE}/api/templates`);
+export async function fetchTemplates() {
+  const response = await fetch('/api/templates');
   if (!response.ok) {
     throw new Error('Failed to fetch templates');
   }
@@ -18,6 +20,11 @@ export async function fetchTemplates() {
 
 export async function buildPortfolio(templateId, portfolio) {
   const response = await fetch(`${API_BASE}/api/build`, {
+  return data.templates;
+}
+
+export async function buildPortfolio(templateId, portfolio) {
+  const response = await fetch('/api/build', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

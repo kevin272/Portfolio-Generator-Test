@@ -19,6 +19,14 @@ function createRenderer(template) {
     if (isOutput || isRawOutput) {
       functionBody += `output += (${trimmed});\n`;
     } else if (trimmed) {
+    const content = match.slice(2, -2);
+    const trimmed = content.trim();
+
+    if (match.startsWith('<%=')) {
+      functionBody += `output += (${trimmed});\n`;
+    } else if (match.startsWith('<%-')) {
+      functionBody += `output += (${trimmed});\n`;
+    } else {
       functionBody += `${trimmed}\n`;
     }
 

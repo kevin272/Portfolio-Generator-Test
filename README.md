@@ -48,6 +48,7 @@ elsewhere, set a global override before loading `main.js`:
 </script>
 <script type="module" src="./main.js"></script>
 ```
+Then browse to `http://localhost:5173` (or whichever port you choose).
 
 ### Environment variables
 
